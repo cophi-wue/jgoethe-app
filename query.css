@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: smaller;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+	padding-top: 3px;
+}
+
+li.hi {
+	background-color: #FFEEAA;
+}
+
+li.info {
+    border-bottom: 1px solid orange;
+}
+
+a {
+	background-color: #FFDD66;
+}
+
+.overview {
+    background-color: #FFF;
+}
