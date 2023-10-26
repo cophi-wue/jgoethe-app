@@ -18,7 +18,7 @@ declare function ed:follow-xinclude($col as xs:string, $sect as element()) as el
 };
 
 declare function ed:query($col as xs:string, $id as xs:string, $page as element(),
-    $anchor as node()) as empty() {
+    $anchor as node()) as empty-sequence() {
     let $mode := req:get-parameter("mode", ())
     let $query := req:get-parameter("query", ())
     let $hits := util:eval(concat("$page[.", $query, "]"))
@@ -30,7 +30,7 @@ declare function ed:query($col as xs:string, $id as xs:string, $page as element(
         )
 };
 
-declare function ed:query-by-id($col as xs:string, $id as xs:string) as empty() {
+declare function ed:query-by-id($col as xs:string, $id as xs:string) as empty-sequence() {
     let $anchor := collection(concat($col, "/pages"))//id($id)
     let $page := $anchor/ancestor-or-self::page
     return

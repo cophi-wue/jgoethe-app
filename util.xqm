@@ -36,11 +36,11 @@ $subSect as xs:string?, $anchor as xs:string) as element() {
         </parameters>
 };
 
-declare function utils:transform($sect as element()) as empty() {
+declare function utils:transform($sect as element()) as empty-sequence() {
     utils:transform($sect, ())
 };
 
-declare function utils:transform($sect as element(), $params as element()?) as empty() {
+declare function utils:transform($sect as element(), $params as element()?) as empty-sequence() {
     transform:stream-transform($sect, doc("/db/jgoethe/tei2html.xsl"), $params)
 };
 

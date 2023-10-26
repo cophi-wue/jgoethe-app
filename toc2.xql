@@ -11,7 +11,7 @@ declare namespace xi="http://www.w3.org/2001/XInclude";
 
 import module namespace xdb="http://exist-db.org/xquery/xmldb";
 
-declare function ed:init($baseCollection as xs:string) as empty() {
+declare function ed:init($baseCollection as xs:string) as empty-sequence() {
     if (collection(concat($baseCollection, "/toc"))) then
         xdb:remove(concat($baseCollection, "/toc"))
     else (),

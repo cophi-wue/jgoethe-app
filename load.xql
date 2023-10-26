@@ -1,12 +1,12 @@
 xquery version "1.0";
 
-import module namespace req="http://exist-db.org/xquery/request";
 import module namespace utils="http://exist-db.org/xquery/jgoethe/utils" at "util.xqm";
 
-declare option exist:serialize "media-type=text/html indent=no";
 	
 declare namespace ed="http://exist-db.org/xquery/jgoethe";
 declare namespace xi="http://www.w3.org/2001/XInclude";
+
+declare option exist:serialize "media-type=text/html indent=no";
 
 declare function ed:last-page($col as xs:string, $id as xs:string) as xs:int {
     let $max := max(for $p in collection(concat($col, "/pages"))/page[@sect = $id]/@num return xs:int($p))
@@ -14,8 +14,8 @@ declare function ed:last-page($col as xs:string, $id as xs:string) as xs:int {
         $max
 };
 
-declare function ed:display($col as xs:string, $id as xs:string) as empty() {
-    let $pageParam := req:get-parameter("page", 1) cast as xs:int
+declare function ed:display($col as xs:string, $id as xs:string) as empty-sequence() {
+    let $pageParam := request:get-parameter("page", 1) cast as xs:int
     let $part := collection(concat($col, "/pages"))/page[@sect = $id][@num = $pageParam]
     (: let $log := util:log("DEBUG", ("Loading: ", $part)) :)
     let $sectId := ($part/@xml:id | $part/*/@xml:id)[1]
@@ -28,8 +28,8 @@ declare function ed:display($col as xs:string, $id as xs:string) as empty() {
 };
 
 declare function ed:display-by-id($col as xs:string, $sectId as xs:string, $page as element(),
-    $anchor as node()) as empty() {
-    let $query := req:get-parameter("query", ())
+    $anchor as node()) as empty-sequence() {
+    let $query := request:get-parameter("query", ())
     let $hits :=
         if ($query) then
             util:eval-inline($page, concat(".[.", $query, "]"))
@@ -48,7 +48,7 @@ declare function ed:display-by-id($col as xs:string, $sectId as xs:string, $page
         )
 };
 
-declare function ed:load-by-id($col as xs:string, $id as xs:string) as empty() {
+declare function ed:load-by-id($col as xs:string, $id as xs:string) as empty-sequence() {
     let $anchor := (collection(concat($col, "/pages"))//id($id))[1]
     (: let $debug := util:log("DEBUG", ("ID: ", $id, ": ", $anchor)) :)
     let $page := $anchor/ancestor-or-self::page
@@ -56,8 +56,8 @@ declare function ed:load-by-id($col as xs:string, $id as xs:string) as empty() {
         ed:display-by-id($col, $id, $page, $anchor)
 };
 
-declare function ed:load($col as xs:string) as empty() {
-    let $parts := req:get-parameter("part", ())
+declare function ed:load($col as xs:string) as empty-sequence() {
+    let $parts := request:get-parameter("part", ())
     return
         if (exists($parts)) then
             ed:display($col, $parts[1])
@@ -65,8 +65,8 @@ declare function ed:load($col as xs:string) as empty() {
             ()
 };
 
-let $id := req:get-parameter("id", ())
-let $col := req:get-parameter("c", ())
+let $id := request:get-parameter("id", ())
+let $col := request:get-parameter("c", ())
 let $r :=
     if ($id) then
         ed:load-by-id($col, $id)
