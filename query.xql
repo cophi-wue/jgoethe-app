@@ -1,14 +1,14 @@
 xquery version "1.0";
 
-import module namespace req="http://exist-db.org/xquery/request";
 import module namespace utils="http://exist-db.org/xquery/jgoethe/utils" at "util.xqm";
 import module namespace simpleql="http://exist-db.org/xquery/simple-ql"
 at "java:org.exist.xquery.modules.simpleql.SimpleQLModule";
 
-declare option exist:serialize "media-type=text/html";
 
 declare namespace ed="http://exist-db.org/xquery/jgoethe";
 declare namespace xi="http://www.w3.org/2001/XInclude";
+
+declare option exist:serialize "media-type=text/html";
 
 declare function ed:load-section($col as xs:string, $id as xs:string) as node()+ {
     let $section := collection($col)/configuration/structure//section[@ref=$id]
@@ -106,11 +106,11 @@ declare function ed:build-query($query as xs:string) as xs:string {
 };
 
 declare function ed:navlink() {
-    let $parts := req:get-parameter("part", ())
-    let $sections := req:get-parameter("section", ())
+    let $parts := request:get-parameter("part", ())
+    let $sections := request:get-parameter("section", ())
     let $col := request:get-parameter("c", ())
-    let $simple := req:get-parameter("simple", ())
-    let $display := req:get-parameter("display", "work")
+    let $simple := request:get-parameter("simple", ())
+    let $display := request:get-parameter("display", "work")
     let $offset as xs:int := request:get-parameter("start", 1)
     return
         concat("simple=", $simple, "&amp;display=", $display,
@@ -120,8 +120,8 @@ declare function ed:navlink() {
 };
 
 declare function ed:query($col as xs:string, $sections as element()*) as element() {
-    let $simple := req:get-parameter("simple", ())
-    let $display := req:get-parameter("display", "work")
+    let $simple := request:get-parameter("simple", ())
+    let $display := request:get-parameter("display", "work")
     let $query := ed:build-query($simple)
     let $log := util:log("DEBUG", ("Query: ", $query))
     let $allSections := ed:follow-xinclude($col, $sections)
@@ -185,8 +185,8 @@ declare function ed:query($col as xs:string, $sections as element()*) as element
         </ul>
 };
 
-let $parts := req:get-parameter("part", ())
-let $sections := req:get-parameter("section", ())
+let $parts := request:get-parameter("part", ())
+let $sections := request:get-parameter("section", ())
 let $col := request:get-parameter("c", ())
 let $divs :=
 	if (exists($sections)) then
