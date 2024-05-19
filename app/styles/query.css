@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: .66em Verdana, Arial, Helvetica, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+	padding-top: 3px;
+}
+
+li.hi {
+	background-color: #FFEEAA;
+}
+
+a {
+	background-color: #FFDD66;
+}
+
+.overview {
+    background-color: #FFF;
+}
+
+.message {
+    text-align: center;
+}
+
+.nav-right {
+    float: right;
+    margin-right: 10px;
+}
+
+.nav-left {
+    float: left;
+    margin-left: 10px;
+}
+
+li.info-top {
+    border-bottom: 1px solid orange;
+    padding-bottom: 3px;
+}
+
+li.info-bottom {
+    border-top: 1px solid orange;
+    padding-top: 3px;
+}
