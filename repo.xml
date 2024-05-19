@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meta 
+  xmlns="http://exist-db.org/xquery/repo">
+  <description>Der junge Goethe in seiner Zeit</description>
+  <author>Thorsten Vitt</author>
+  <website>https://thorstenvitt.de/</website>
+  <status>SNAPSHOT</status>
+  <license>AGPL-3.0</license>
+  <copyright>true</copyright>
+  <type>application</type>
+  <target>jgoethe</target>
+  <prepare>pre-install.xq</prepare>
+  <finish>post-install.xq</finish>
+</meta>
