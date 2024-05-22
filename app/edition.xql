@@ -1,11 +1,15 @@
 xquery version "1.0";
 
 declare namespace ed="http://exist-db.org/xquery/jgoethe";
+declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
+declare option output:method "html";
+declare option output:indent "yes";
+declare option output:media-type "text/html";
 
-declare option exist:serialize "method=xhtml indent=yes
-	omit-xml-declaration=no
-	doctype-public=-//W3C//DTD#160;HTML#160;4.01//EN
-	doctype-system=http://www.w3.org/TR/html4/strict.dtd";
+(:declare option exist:serialize "method=xhtml indent=yes:)
+(:	omit-xml-declaration=no:)
+(:	doctype-public=-//W3C//DTD#160;HTML#160;4.01//EN:)
+(:	doctype-system=http://www.w3.org/TR/html4/strict.dtd";:)
 
 declare function ed:display-part-headings($col as xs:string) as element() {
     <tr>
@@ -67,7 +71,7 @@ declare function ed:javascript-warning($col as xs:string) {
 };
 
 let $col0 := request:get-parameter("c", ())
-let $col := if ($col0) then $col0 else "/db/jgoethe"
+let $col := if ($col0) then $col0 else "/db/apps/jgoethe/data/jgoethe" (: FIXME configurable via controller :)
 return (
     util:log("DEBUG", ("Collection: ", $col)),
     <html>
