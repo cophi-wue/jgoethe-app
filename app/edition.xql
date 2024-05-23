@@ -1,4 +1,7 @@
-xquery version "1.0";
+xquery version "3.1";
+
+import module namespace config="http://digital-humanities.de/jgoethe/config" at "config.xqm";
+import module namespace console="http://exist-db.org/xquery/console";
 
 declare namespace ed="http://exist-db.org/xquery/jgoethe";
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
@@ -71,9 +74,10 @@ declare function ed:javascript-warning($col as xs:string) {
 };
 
 let $col0 := request:get-parameter("c", ())
-let $col := if ($col0) then $col0 else "/db/apps/jgoethe/data/jgoethe" (: FIXME configurable via controller :)
+let $col := if ($col0) then $col0 else $config:col
 return (
     util:log("DEBUG", ("Collection: ", $col)),
+    console:log("Collection: " || $col),
     <html>
         <head>
             <title>{collection($col)/configuration/title/text()}</title>
