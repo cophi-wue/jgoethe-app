@@ -1,15 +1,16 @@
-xquery version "1.0";
+xquery version "3.1";
 
+import module namespace config="http://digital-humanities.de/jgoethe/config" at "config.xqm";
 import module namespace req="http://exist-db.org/xquery/request";
 import module namespace utils="http://exist-db.org/xquery/jgoethe/utils" at "util.xqm";
-
-declare option exist:serialize "media-type=text/xml omit-xml-declaration=no";
-declare option exist:profiling "enabled=no verbosity=5";
+import module namespace xdb="http://exist-db.org/xquery/xmldb";
 
 declare namespace ed="http://exist-db.org/xquery/jgoethe";
 declare namespace xi="http://www.w3.org/2001/XInclude";
 
-import module namespace xdb="http://exist-db.org/xquery/xmldb";
+declare option exist:serialize "media-type=text/xml omit-xml-declaration=no";
+declare option exist:profiling "enabled=no verbosity=5";
+
 
 declare function ed:init($baseCollection as xs:string) as empty-sequence() {
     if (collection(concat($baseCollection, "/toc"))) then
@@ -34,7 +35,7 @@ $level as xs:int, $maxLevels as xs:int?, $children as element()+) as element()* 
 declare function ed:expand-xincludes($div as element()) as element()* {
     for $xi in $div/xi:include
     return
-        doc(concat("/db/jgoethe/", $xi/@href))/*
+        doc($config:col || "/" || $xi/@href)/*
 };
 
 declare function ed:process-div($col as xs:string, $partId as xs:string, $div as element(), 

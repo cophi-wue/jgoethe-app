@@ -1,5 +1,6 @@
-xquery version "1.0";
+xquery version "3.1";
 
+import module namespace config="http://digital-humanities.de/jgoethe/config" at "config.xqm";
 import module namespace response="http://exist-db.org/xquery/response";
 import module namespace util="http://exist-db.org/xquery/util";
 
@@ -8,6 +9,6 @@ return
     if (empty($id)) then
         ()
     else
-        let $url := doc("/db/jgoethe/graphics.xml")//id($id)
-        let $data := util:binary-doc(concat("/db/jgoethe/", $url/@url))
+        let $url := doc($config:col || "/graphics.xml")//id($id),
+            $data := util:binary-doc($config:col || "/" || $url/@url)
         return response:stream-binary($data, "image/gif")

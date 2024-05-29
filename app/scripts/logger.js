@@ -251,7 +251,7 @@ YAHOO.widget.Logger._printToFirebug = function(entry) {
             entry.msg;
 
         
-        console.log(output);
+        console.trace(output);
     }
 };
 

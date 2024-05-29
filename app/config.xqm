@@ -1,7 +1,7 @@
 xquery version "3.1";
 
 module namespace config="http://digital-humanities.de/jgoethe/config";
-import module namespace console="http://exist-db.org/xquery/console";
+(:import module namespace console="http://exist-db.org/xquery/console";:)
 
 declare variable $config:app-root := 
     let $rawPath := system:get-module-load-path()

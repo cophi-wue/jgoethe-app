@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<meta 
-  xmlns="http://exist-db.org/xquery/repo">
+<meta xmlns="http://exist-db.org/xquery/repo">
   <description>Der junge Goethe in seiner Zeit</description>
   <author>Thorsten Vitt</author>
   <website>https://thorstenvitt.de/</website>

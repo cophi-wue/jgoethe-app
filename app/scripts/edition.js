@@ -1,4 +1,4 @@
-// Call init() after the document was loaded
+// Call init( ) after the document was loaded
 //window.onload = init;
 //window.onresize = resize;
 YAHOO.util.Event.addListener(window, 'load', init);
@@ -27,6 +27,11 @@ var matches = [];
 var currentMatch = null;
 
 var treeWidget = null;
+
+function getCollection() {
+  const components = document.getElementById('collection').value.split(/\//);
+  return components[components.length - 1];
+}
 
 /**
  * Initialization
@@ -160,7 +165,7 @@ function search(form) {
 		    return false;
 		}
 	}
-	urlString = "query.xql?" + urlString + '&c=' + document.getElementById('collection').value +
+	urlString = "query.xql?" + urlString + '&c=' + getCollection() +
 		"&display=" + display + "&simple=" + simple;
 	
 	document.getElementById("hits").src = urlString;
@@ -202,7 +207,7 @@ function displayQueryResult(event, queryMode, query, id, matchId, matchOffset) {
 
 	var urlString = "load.xql?mode=" + queryMode +
 		"&query=" + encodeURIComponent(query) + "&id=" + id + 
-		'&c=' + document.getElementById('collection').value +
+		'&c=' + getCollection() +
 		'&m=' + matchId + '_' + matchOffset;
 	currentQuery = query;
 	currentMatchId = matchId;
@@ -237,7 +242,7 @@ function loadSection(form) {
         nav.style.visibility = "visible";
  	
     var iframe = document.getElementById('content');
-    iframe.src = 'load.xql?' + urlString + '&c=' + document.getElementById('collection').value;
+    iframe.src = 'load.xql?' + urlString + '&c=' + getCollection()
     var showToc = document.main.toc_check.checked;
     displayToc(showToc);
 	updateToC();
@@ -284,7 +289,7 @@ function loadById(id) {
 	loadIndicator(true);
 	var iframe = document.getElementById("content");
     iframe.src = "load.xql?id=" + id + 
-    	'&c=' + document.getElementById('collection').value + '#' + id;
+    	'&c=' + getCollection() + '#' + id;
 }
 
 /**
@@ -554,8 +559,7 @@ function sectionUnloaded() {
 
 function followLink(id, page) {
     var iframe = document.getElementById("content");
-    iframe.src = "load.xql?part=" + id + "&page=" + page +
-    	'&c=' + document.getElementById('collection').value;;
+    iframe.src = "load.xql?part=" + id + "&page=" + page + '&c=' + getCollection();
 }
 
 /**
@@ -643,12 +647,12 @@ function tocProcessPending() {
  		return;
  	var next = tocPending.shift();
  	var params = 'part=' + encodeURIComponent(next) + '&c=' + 
- 		document.getElementById('collection').value + "";
+ 		getCollection() + "";
  	var callback = {
  		success: tocEntryLoaded,
  		failure: requestFailed
  	};
- 	var url = '../rest' + document.getElementById('collection').value +
+ 	var url = document.getCollection() +
  			'/toc/' + encodeURIComponent(next) + '.xml';
  	YAHOO.log('Loading table of contents from ' + url);
  	var txn = YAHOO.util.Connect.asyncRequest('GET', url, callback, null);
