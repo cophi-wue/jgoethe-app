@@ -9,6 +9,25 @@ return
     if (empty($id)) then
         ()
     else
-        let $url := doc($config:col || "/graphics.xml")//id($id),
-            $data := util:binary-doc($config:col || "/" || $url/@url)
-        return response:stream-binary($data, "image/gif")
+        let $url := doc($config:col || "/graphics.xml")/id($id),
+            $path := $config:col || "/" || data($url/@url),
+            $data := util:binary-doc($path)
+        return if (empty($data))
+            then (
+                    response:set-status-code(404),
+                    <html xmlns="http://www.w3.org/1999/xhtml">
+                        <head><title>404 Not found</title>
+                            <style>strong {{ background: lightgray; padding: 2px; }}</style>
+                        </head>
+                        <body>
+                            <h1>Image not found</h1>
+                            <p>
+                                ID <strong>{$id}</strong> in {$config:col || "/graphics.xml"}
+                            => URL <strong>{data($url/@url)}</strong>
+                            => Path <strong>{$path}</strong>
+                            </p>
+                        </body>
+                    </html>
+                )
+            else response:stream-binary($data, "image/gif")
+
