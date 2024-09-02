@@ -1,6 +1,7 @@
-xquery version "1.0";
+xquery version "3.1";
 
 import module namespace utils="http://exist-db.org/xquery/jgoethe/utils" at "util.xqm";
+import module namespace config="http://digital-humanities.de/jgoethe/config" at "config.xqm";
 
 	
 declare namespace ed="http://exist-db.org/xquery/jgoethe";
@@ -66,7 +67,9 @@ declare function ed:load($col as xs:string) as empty-sequence() {
 };
 
 let $id := request:get-parameter("id", ())
-let $col := request:get-parameter("c", ())
+let $col_ := request:get-parameter("c", ())
+let $colname := replace($col_, '^.*/([^/]+)$', '$1')
+let $col := $config:data || '/' || $colname
 let $r :=
     if ($id) then
         ed:load-by-id($col, $id)
