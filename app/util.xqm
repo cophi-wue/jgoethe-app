@@ -1,4 +1,8 @@
+xquery version "3.1";
+
 module namespace utils="http://exist-db.org/xquery/jgoethe/utils";
+
+import module namespace config="http://digital-humanities.de/jgoethe/config" at "config.xqm";
 
 import module namespace transform="http://exist-db.org/xquery/transform";
 import module namespace util="http://exist-db.org/xquery/util";
@@ -23,7 +27,7 @@ declare function utils:process-head($head as element(head)?) as xs:string {
     )
 };
 
-declare function utils:xsl-params($func, $page as xs:int, $nextPage as xs:int, $id as xs:string, $head as element(),
+declare function utils:xsl-params($func, $page as xs:int, $nextPage as xs:int, $id as xs:string, $head as element()?,
 $subSect as xs:string?, $anchor as xs:string) as element() {
     let $onload := concat(
                     $func, "('", if ($page gt 0) then utils:process-head($head) else (),
@@ -36,12 +40,12 @@ $subSect as xs:string?, $anchor as xs:string) as element() {
         </parameters>
 };
 
-declare function utils:transform($sect as element()?) as empty-sequence() {
+declare function utils:transform($sect as element()?) as item()* {
     utils:transform($sect, ())
 };
 
 declare function utils:transform($sect as element()?, $params as element()?) as empty-sequence() {
-    transform:stream-transform($sect, doc("/db/jgoethe/tei2html.xsl"), $params)
+    transform:stream-transform($sect, doc($config:col || "/tei2html.xsl"), $params)
 };
 
 declare function utils:find-pages($col as xs:string, $parts as element()*, $level as xs:int) as element()* {
