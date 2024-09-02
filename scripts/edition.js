@@ -165,7 +165,7 @@ function search(form) {
 		    return false;
 		}
 	}
-	urlString = "query.xql?" + urlString + '&c=' + getCollection() +
+	urlString = "query-new.xql?" + urlString + '&c=' + getCollection() +
 		"&display=" + display + "&simple=" + simple;
 	
 	document.getElementById("hits").src = urlString;
