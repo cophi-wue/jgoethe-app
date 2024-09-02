@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) --><svg height="64.000000" id="svg1301" version="1.0" width="64.000000" x="0.0000000" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0.0000000">
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) --><svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="64.000000" id="svg1301" version="1.0" width="64.000000" x="0.0000000" y="0.0000000">
   <metadata>
-    <rdf:RDF xmlns:cc="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <rdf:RDF xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
       <cc:Work rdf:about="">
         <dc:title>blueberry - iconset</dc:title>
-        <dc:description></dc:description>
+        <dc:description/>
         <dc:subject>
           <rdf:Bag>
             <rdf:li>icon</rdf:li>
@@ -27,7 +27,7 @@
             <dc:title>Marko J. Kolehmainen</dc:title>
           </cc:Agent>
         </dc:rights>
-        <dc:date></dc:date>
+        <dc:date/>
         <dc:format>image/svg+xml</dc:format>
         <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
         <cc:license rdf:resource="http://web.resource.org/cc/PublicDomain"/>

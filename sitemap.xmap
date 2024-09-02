@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
 
 <!-- =========================== Components ================================ -->
 
 	<map:components>
 		<map:generators default="file">
-			<map:generator name="xquery" 
-                logger="sitemap.generator.xquery"
-				src="org.exist.cocoon.XQueryGenerator">
+			<map:generator name="xquery" logger="sitemap.generator.xquery" src="org.exist.cocoon.XQueryGenerator">
             </map:generator>
 		</map:generators>
 	  	<map:readers default="resource"/>

@@ -56,8 +56,7 @@
             <section ref="BERICHTEUBERGOETHE" xpath="id('BERICHTEUBERGOETHE')/ancestor::div1">
                 Zeitgenössische Berichte und Urteile über Goethe
             </section>
-            <section ref="REZENSIONENBERICHTEABHANDLUNGEN"
-                xpath="id('REZENSIONENBERICHTEABHANDLUNGEN')/ancestor::div1">
+            <section ref="REZENSIONENBERICHTEABHANDLUNGEN" xpath="id('REZENSIONENBERICHTEABHANDLUNGEN')/ancestor::div1">
                 Rezensionen, Polemiken, Parodien
             </section>
             <section ref="DICHTUNGENDERGEFAHRTEN" xpath="id('DICHTUNGENDERGEFAHRTEN')/ancestor::div1">
@@ -76,8 +75,7 @@
             <section ref="HEDERICH" xpath="id('HEDERICH')/ancestor::div1">
                 Hederichs Mythologisches Lexikon
             </section>
-            <section ref="BIBEL" xpath="id('BIBEL')/ancestor::div1"
-                split-levels="2">Die Bibel</section>
+            <section ref="BIBEL" xpath="id('BIBEL')/ancestor::div1" split-levels="2">Die Bibel</section>
         </part>
         <part id="ERSCHLIESSUNGSHILFEN">
             <head>ERSCHLIESSUNGSHILFEN</head>

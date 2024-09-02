@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <collection xmlns="http://exist.sourceforge.net/NS/exist" name="/db/jgoethe/handschr/lyrik/sammlgh2" version="1" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.905+02:00">
     <resource type="BinaryResource" name="h219.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.927+02:00" modified="2008-04-29T22:34:44.927+02:00" filename="h219.gif" mimetype="image/gif"/>
     <resource type="BinaryResource" name="h220.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.929+02:00" modified="2008-04-29T22:34:44.929+02:00" filename="h220.gif" mimetype="image/gif"/>
