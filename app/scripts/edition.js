@@ -648,11 +648,13 @@ function tocProcessPending() {
  	var next = tocPending.shift();
  	var params = 'part=' + encodeURIComponent(next) + '&c=' + 
  		getCollection() + "";
+
+
  	var callback = {
  		success: tocEntryLoaded,
  		failure: requestFailed
  	};
- 	var url = document.getCollection() +
+ 	var url = getCollection() +
  			'/toc/' + encodeURIComponent(next) + '.xml';
  	YAHOO.log('Loading table of contents from ' + url);
  	var txn = YAHOO.util.Connect.asyncRequest('GET', url, callback, null);
