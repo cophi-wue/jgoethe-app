@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="exist-ant-tasks">
+
+	<property name="server.home" value="../.."/>
+	<property name="jgoethe.dir" value="/home/wolf/xml/Goethe"/>
+	<property name="app.home" value="${server.home}/webapp/jgoethe"/>
+	<property name="xml.dir" value="${app.home}/xml"/>
+	<property name="xml.dir.goethe" value="${xml.dir}/Goethe"/>
+	<property name="xml.dir.lenz" value="${xml.dir}/Lenz"/>
+
+	<path id="classpath.core">
+		<fileset dir="${server.home}/lib/core">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${server.home}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<typedef resource="org/exist/ant/antlib.xml" uri="http://exist-db.org/ant">
+		<classpath refid="classpath.core"/>
+	</typedef>
+
+	<target name="all" depends="store,prepare-db,images"/>
+	
+	<target xmlns:xmldb="http://exist-db.org/ant" name="config">
+		<xmldb:store user="admin" password="" uri="xmldb:exist:///db/system/config/db" createcollection="true" initdb="true">
+			<fileset dir="${app.home}">
+				<include name="jgoethe.xconf"/>
+			</fileset>
+		</xmldb:store>
+		<xmldb:store user="admin" password="" uri="xmldb:exist:///db/jgoethe" createcollection="true" initdb="true">
+			<fileset dir="${app.home}">
+				<include name="tei2html.xsl"/>
+				<include name="configuration.xml"/>
+				<include name="graphics.xml"/>
+			</fileset>
+		</xmldb:store>
+		<xmldb:store user="admin" password="" uri="xmldb:exist:///db/lenz" createcollection="true" srcfile="${app.home}/config-lenz.xml"/>
+	</target>
+
+	<target xmlns:xmldb="http://exist-db.org/ant" name="store" depends="config">
+		<xmldb:store user="admin" password="" uri="xmldb:exist:///db/jgoethe" createcollection="true" initdb="true">
+			<fileset dir="${xml.dir.goethe}">
+				<include name="jgoethe.xml"/>
+			</fileset>
+		</xmldb:store>
+		<xmldb:store user="admin" password="" uri="xmldb:exist:///db/lenz" createcollection="true" initdb="true">
+			<fileset dir="${xml.dir.lenz}">
+				<include name="*.xml"/>
+			</fileset>
+		</xmldb:store>
+	</target>
+	
+	<target xmlns:xmldb="http://exist-db.org/ant" name="images">
+		<echo message="Load image data ..."/>
+		
+		<xmldb:store user="admin" password="" uri="xmldb:exist:///db/jgoethe/bilder" createcollection="true" initdb="true">
+			<fileset dir="${xml.dir.goethe}/bilder">
+				<include name="**/*.gif"/>
+				<include name="**/*.jpg"/>
+			</fileset>
+		</xmldb:store>
+		<xmldb:store user="admin" password="" uri="xmldb:exist:///db/jgoethe/handschr" createcollection="true" initdb="true">
+			<fileset dir="${xml.dir.goethe}/handschr">
+				<include name="**/*.gif"/>
+				<include name="**/*.jpg"/>
+			</fileset>
+		</xmldb:store>
+		<xmldb:store user="admin" password="" uri="xmldb:exist:///db/jgoethe/hederich" createcollection="true" initdb="true">
+			<fileset dir="${xml.dir.goethe}/hederich">
+				<include name="**/*.gif"/>
+				<include name="**/*.jpg"/>
+			</fileset>
+		</xmldb:store>
+		<xmldb:store user="admin" password="" uri="xmldb:exist:///db/jgoethe/physfrag" createcollection="true" initdb="true">
+			<fileset dir="${xml.dir.goethe}/physfrag">
+				<include name="**/*.gif"/>
+				<include name="**/*.jpg"/>
+			</fileset>
+		</xmldb:store>
+	</target>
+	
+	<target xmlns:xmldb="http://exist-db.org/ant" name="prepare-db">
+		<echo message="Generating pages ..."/>
+		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/jgoethe" queryfile="${app.home}/prepare.xq" initdb="true">
+			<xmldb:variable name="collection" value="/db/jgoethe"/>
+		</xmldb:xquery>
+		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/lenz" queryfile="${app.home}/prepare.xq">
+			<xmldb:variable name="collection" value="/db/lenz"/>
+		</xmldb:xquery>
+		<echo message="Generating table of contents ..."/>
+		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/jgoethe" queryfile="${app.home}/toc-prepare.xq">
+			<xmldb:variable name="collection" value="/db/jgoethe"/>
+		</xmldb:xquery>
+		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/lenz" queryfile="${app.home}/toc-prepare.xq" initdb="true">
+			<xmldb:variable name="collection" value="/db/lenz"/>
+		</xmldb:xquery>
+	</target>
+</project>

@@ -1,0 +1,97 @@
+body {
+    font: 0.8125em/1.66em Verdana, Arial, sans-serif;
+	margin: 5px 10px;
+}
+
+.heading1 {
+    font: 1.66em/2em Georgia, Times, serif; 
+    text-align: center;
+    margin: 0.5em 0; 
+    padding-bottom: 0.75em; 
+    border-bottom: 1px dashed #B2B2B2;
+}
+
+.heading2 {
+    font: normal 1.33em/2em Verdana, Arial, sans-serif;
+}
+
+.heading3, .heading4, .heading5 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.ref {
+    color:blue;
+    text-decoration: underline;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+p {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+img {
+    border: 0;
+}
+
+td {
+	width: 50%;
+	vertical-align: top;
+    font: 0.8125em/1.66em Verdana, Arial, sans-serif;
+    padding: 5px 10px 0 0;
+}
+
+.lg {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.l {
+    text-align: left;
+    margin-left: 20px;
+    margin-top: .25em;
+    margin-bottom: .25em;
+}
+
+.stage {
+    margin: 10px 30px;
+    font-style: italic;
+}
+
+.speaker {
+    font-family: Georgia, Times, serif; 
+    font-weight: bold;
+}
+
+.highlight {
+	background-color: #FFDD66;
+}
+
+.note {
+    font-size: .9em;
+    font-weight: bold;
+    vertical-align: super;
+    text-decoration: none;
+    color: #FF7722;
+}
+
+.head {
+    text-align: right;
+	background-color: #660099;
+	border-bottom: 1px solid black;
+}
+
+.head a {
+	color: #FFF;
+}
+
+.content {
+    padding: 5px;
+}
+
+.note_overlay {
+    visibility: hidden;
+    position: absolute;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns=""/>
+    </meta>
+    <projectTree name="goethe.xpr">
+        <file name="build.xml"/>
+        <file name="../../conf.xml"/>
+        <file name="config-lenz.xml"/>
+        <file name="configuration.xml"/>
+        <file name="styles/default-style.css"/>
+        <file name="edition.xql"/>
+        <file name="load-query-results.xql"/>
+        <file name="load.xql"/>
+        <file name="prepare.xq"/>
+        <file name="styles/query.css"/>
+        <file name="query.xql"/>
+        <file name="tei2html.xsl"/>
+        <file name="styles/teihtml.css"/>
+        <file name="toc.xql"/>
+        <file name="util.xqm"/>
+    </projectTree>
+</project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns="http://exist.sourceforge.net/NS/exist" name="/db/jgoethe/handschr/lyrik/volkslie" version="1" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.974+02:00">
+    <resource type="BinaryResource" name="volk17.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.998+02:00" modified="2008-04-29T22:34:44.998+02:00" filename="volk17.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk18.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.999+02:00" modified="2008-04-29T22:34:44.999+02:00" filename="volk18.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk19.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:45.002+02:00" modified="2008-04-29T22:34:45.002+02:00" filename="volk19.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk20.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:45.004+02:00" modified="2008-04-29T22:34:45.004+02:00" filename="volk20.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk21.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:45.005+02:00" modified="2008-04-29T22:34:45.005+02:00" filename="volk21.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk22.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:45.006+02:00" modified="2008-04-29T22:34:45.006+02:00" filename="volk22.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk23.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:45.008+02:00" modified="2008-04-29T22:34:45.008+02:00" filename="volk23.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk24.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:45.009+02:00" modified="2008-04-29T22:34:45.009+02:00" filename="volk24.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk25.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:45.011+02:00" modified="2008-04-29T22:34:45.011+02:00" filename="volk25.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk26.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:45.013+02:00" modified="2008-04-29T22:34:45.013+02:00" filename="volk26.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk27.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:45.014+02:00" modified="2008-04-29T22:34:45.014+02:00" filename="volk27.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk28.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:45.015+02:00" modified="2008-04-29T22:34:45.015+02:00" filename="volk28.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk01.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.975+02:00" modified="2008-04-29T22:34:44.975+02:00" filename="volk01.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk02.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.977+02:00" modified="2008-04-29T22:34:44.977+02:00" filename="volk02.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk03.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.978+02:00" modified="2008-04-29T22:34:44.978+02:00" filename="volk03.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk04.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.979+02:00" modified="2008-04-29T22:34:44.979+02:00" filename="volk04.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk05.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.982+02:00" modified="2008-04-29T22:34:44.982+02:00" filename="volk05.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk06.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.983+02:00" modified="2008-04-29T22:34:44.983+02:00" filename="volk06.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk07.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.984+02:00" modified="2008-04-29T22:34:44.984+02:00" filename="volk07.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk08.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.986+02:00" modified="2008-04-29T22:34:44.986+02:00" filename="volk08.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk09.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.987+02:00" modified="2008-04-29T22:34:44.987+02:00" filename="volk09.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk10.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.99+02:00" modified="2008-04-29T22:34:44.99+02:00" filename="volk10.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk11.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.991+02:00" modified="2008-04-29T22:34:44.991+02:00" filename="volk11.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk12.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.993+02:00" modified="2008-04-29T22:34:44.993+02:00" filename="volk12.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk13.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.994+02:00" modified="2008-04-29T22:34:44.994+02:00" filename="volk13.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk14.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.995+02:00" modified="2008-04-29T22:34:44.995+02:00" filename="volk14.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="volk15.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.996+02:00" modified="2008-04-29T22:34:44.996+02:00" filename="volk15.gif" mimetype="image/gif"/>
+</collection>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+    <head>
+        <title>Projekt Einstiegsseite</title>
+        <style type="text/css">
+            body {
+                font-family: Verdana, Arial, Helvetica, sans-serif;
+                text-align: center;
+            }
+            
+            #container {
+                width: 65%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 75px;
+                height: 60%;
+            }
+            
+            .outer {
+                background-color: #FFD700;
+                height: 25%;
+                position: relative;
+                margin-top: 25px;
+            }
+            
+             .inner {
+                position: absolute;
+                left: 15%;
+                right: 15%;
+                top: 15%;
+                bottom: 15%;
+                width: 70%;
+                height: 60%;
+                background-color: #FFA500;
+            }
+            
+            #lenz {
+                background-color: #FFA500;
+            }
+            
+            #lenz .inner {
+                background-color: #FFD700;
+            }
+            
+            a {
+                display: block;
+                text-align: center;
+                margin-top: 1em;
+                font-size: 125%;
+                text-decoration: none;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div class="outer">
+                <div class="inner">
+                    <a href="edition.xql?c=/db/jgoethe">Der junge Goethe in seiner Zeit</a>
+                </div>
+            </div>
+            <div id="lenz" class="outer">
+                <div class="inner">
+                    <a href="edition.xql?c=/db/lenz">Jakob Michael Reinhold Lenz</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

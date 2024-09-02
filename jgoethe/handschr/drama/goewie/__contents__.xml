@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns="http://exist.sourceforge.net/NS/exist" name="/db/jgoethe/handschr/drama/goewie" version="1" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.462+02:00">
+    <resource type="BinaryResource" name="goewie00.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.462+02:00" modified="2008-04-29T22:34:44.462+02:00" filename="goewie00.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie01.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.464+02:00" modified="2008-04-29T22:34:44.464+02:00" filename="goewie01.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie02.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.466+02:00" modified="2008-04-29T22:34:44.466+02:00" filename="goewie02.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie03.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.468+02:00" modified="2008-04-29T22:34:44.468+02:00" filename="goewie03.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie04.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.471+02:00" modified="2008-04-29T22:34:44.471+02:00" filename="goewie04.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie05.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.474+02:00" modified="2008-04-29T22:34:44.474+02:00" filename="goewie05.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie06.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.478+02:00" modified="2008-04-29T22:34:44.478+02:00" filename="goewie06.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie07.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.481+02:00" modified="2008-04-29T22:34:44.481+02:00" filename="goewie07.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie08.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.484+02:00" modified="2008-04-29T22:34:44.484+02:00" filename="goewie08.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie09.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.488+02:00" modified="2008-04-29T22:34:44.488+02:00" filename="goewie09.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie10.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.49+02:00" modified="2008-04-29T22:34:44.49+02:00" filename="goewie10.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie11.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.492+02:00" modified="2008-04-29T22:34:44.492+02:00" filename="goewie11.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie12.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.496+02:00" modified="2008-04-29T22:34:44.496+02:00" filename="goewie12.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie13.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.498+02:00" modified="2008-04-29T22:34:44.498+02:00" filename="goewie13.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie14.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.501+02:00" modified="2008-04-29T22:34:44.501+02:00" filename="goewie14.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie15.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.504+02:00" modified="2008-04-29T22:34:44.504+02:00" filename="goewie15.gif" mimetype="image/gif"/>
+    <resource type="BinaryResource" name="goewie16.gif" owner="admin" group="dba" mode="755" created="2008-04-29T22:34:44.506+02:00" modified="2008-04-29T22:34:44.506+02:00" filename="goewie16.gif" mimetype="image/gif"/>
+</collection>

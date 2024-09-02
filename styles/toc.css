@@ -1,0 +1,46 @@
+#toc {
+    font: 0.66em Verdana, sans-serif;
+    background-color: #FFF88F;
+    margin: 5px 2px;
+}
+
+#toc .expandable {
+    width: 100%;
+    font-size: 1em;
+}
+
+#toc .icon {
+    width: 20px;
+}
+
+#toc a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+}
+
+#toc a.expand {
+    color: #F60;
+}
+
+#toc a.entry {
+    display: block;
+}
+
+#toc a.entry:hover {
+    background-color: white;
+}
+
+#toc a.level1 {
+    font-family: Georgia, Times, serif;
+    font-weight: bold;
+}
+
+#toc div.expandable:hover {
+    background-color: white;
+}
+
+#toc .entries {
+    padding: 0.5em 0 0.5em 1em;
+}
