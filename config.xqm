@@ -13,8 +13,8 @@ declare variable $config:app-root :=
                 substring($rawPath, 15)
         else
             $rawPath
-    return substring($modulePath, 1, string-length($modulePath) - 4); (: "/app" :)
+    return $modulePath; (:  : substring($modulePath, 1, string-length($modulePath) - 4); (: "/app" :) :)
     
-declare variable $config:data := $config:app-root || "/data";
+declare variable $config:data := $config:app-root (:  :|| "/data" :);
 declare variable $config:col := $config:data || "/jgoethe";
 declare variable $config:tei2html := $config:col || "/tei2html.xsl";
