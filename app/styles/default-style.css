@@ -6,6 +6,8 @@
  */
 body {font:13px verdana,arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}
 
+html { height: 100vh; } /* FIXME why is this required in the new but not in the old app? */
+
 table {font-size:inherit;font:100%;}
 
 /**
@@ -38,7 +40,7 @@ a:link, a:hover, a:visited {
 	text-decoration: none;
 }
 
-/* Container für die obere Hälfte der Seite ohne die Titelzeile */
+/* Container fuer die obere Hälfte der Seite ohne die Titelzeile */
 #container {
     margin-top: 5px;
     background-color: #FFEE99;
@@ -166,7 +168,7 @@ a:link, a:hover, a:visited {
     margin-right: 8px;
 }
 
-/* Box für Optionen und Suchergebnisse */
+/* Box fuer Optionen und Suchergebnisse */
 #rbox {
     height: 140px;
     overflow: visible;
@@ -282,7 +284,7 @@ a:link, a:hover, a:visited {
     color: #FF7722;
 }
 
-/* IFrame f�r den Volltext */
+/* IFrame fuer den Volltext */
 #content {
 	float: right;
 }
