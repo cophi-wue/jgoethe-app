@@ -348,8 +348,8 @@ function resizeResultsFrame() {
 		var hits = document.getElementById("hits");
 		var opts = document.getElementById("dispopt");
 	
-		hits.style.width = 0;
-		hits.style.width = (document.body.clientWidth - opts.offsetWidth - 30) + 'px';
+// 		hits.style.width = 0;
+// 		hits.style.width = (document.body.clientWidth - opts.offsetWidth - 30) + 'px';
 	}
 }
 
