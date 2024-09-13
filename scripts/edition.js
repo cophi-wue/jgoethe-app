@@ -197,7 +197,7 @@ function searchCompleted() {
 /**
  * Display the full-text of a query result.
  */
-function displayQueryResult(event, queryMode, query, id, matchId, matchOffset) {
+function displayQueryResult(_, queryMode, simple, id, matchId, matchOffset) {
 	loadIndicator(true);
 
 	displayToc(document.main.toc_check.checked);
@@ -206,10 +206,10 @@ function displayQueryResult(event, queryMode, query, id, matchId, matchOffset) {
     nav.style.visibility = "visible";
 
 	var urlString = "load.xql?mode=" + queryMode +
-		"&query=" + encodeURIComponent(query) + "&id=" + id + 
+		"&simple=" + encodeURIComponent(simple) + "&id=" + id + 
 		'&c=' + getCollection() +
 		'&m=' + matchId + '_' + matchOffset;
-	currentQuery = query;
+	currentQuery = simple;
 	currentMatchId = matchId;
 	currentMatchOffset = matchOffset;
 	currentId = id;

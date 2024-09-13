@@ -25,7 +25,7 @@ declare function ed:navlink() {
     let $col := request:get-parameter("c", ())
     let $simple := request:get-parameter("simple", ())
     let $display := request:get-parameter("display", "work")
-    let $offset as xs:int := request:get-parameter("start", 1)
+    let $offset as xs:integer := request:get-parameter("start", 1)
     return
         concat("simple=", $simple, "&amp;display=", $display,
             string-join(for $p in $parts return concat("&amp;part=", $p), ""),
@@ -42,8 +42,8 @@ $query as xs:string, $mode as xs:string, $col as xs:string) as node()* {
     for $hit at $pos in $nodes
     let $node := $hit,
         $id0 := ($node/ancestor::l/@xml:id|$node/ancestor::lg/@xml:id|$node/ancestor::sp/@xml:id|$node/ancestor::p/@xml:id),
-        $id := if ($id0) then $id0[1] else $node/ancestor::*/@xml:id[last()],
-        $link := "javascript:top.displayQueryResult(null,'single','','" || $id || "','" || util:node-id($node) || "','')" (: FIXME Leerstellen :),
+        $id := (if ($id0) then $id0[1] else $node/ancestor::*/@xml:id[last()])[1],
+        $link := "javascript:top.displayQueryResult(null,'single','"|| $query ||"','" || $id || "','" || util:node-id($node)  || "', " || $pos || ")" (: FIXME Leerstellen :),
         $titles := for $a in $hit/ancestor::*
                    let $h := $a/head
                    return if ($h and exists($sections//$h)) then utils:process-head($h[1]) else ()
@@ -58,18 +58,42 @@ $query as xs:string, $mode as xs:string, $col as xs:string) as node()* {
     )
 };
 
+declare function ed:display-overview($col as xs:string, $sections as element()*, $matches as node()*, $simple as xs:string) as node()* {
+    <ul>
+    {
+        for $sect in $sections
+        for $div at $pos in utils:get-divs($col, $sect)
+        let $hits := $div//$matches
+        let $count := count($hits)
+        where $count gt 0
+        return
+            let $first := $hits[1]
+            let $id := ($first/ancestor-or-self::*/@xml:id)[last()]
+            return
+                <li>
+                    <a class="overview" href="#" 
+                        onclick="return top.displayQueryResult(null, 'overview', '{$simple}', '{$id}', '{$div/@xml:id}')">
+                        <b>{utils:process-head($sect/head)}</b> /
+                        { utils:process-head($div/head)} / { $count }
+                    </a>
+                </li>
+    }
+    </ul>
+};
+
+
 declare function ed:query($col as xs:string, $divs as node()*) as node()* {
     let $simple := request:get-parameter("simple", ())
     let $display := request:get-parameter("display", "work")
     let $offset as xs:integer := request:get-parameter("start", 1)
-    let $hits := $divs//(p|l|head|cell)[ft:query(., $simple)]
+    let $hits := utils:ftquery($divs, $simple)
     let $count := count($hits)
     let $howmany := if ($count gt 100) then 100 else $count
     return
         <ul>
         {
             if ($display eq "work") then
-                "TODO: display=work"
+                ed:display-overview($col, $divs, $hits, $simple)
             else (
                 <li class="info-top">
                 {
@@ -92,7 +116,7 @@ declare function ed:query($col as xs:string, $divs as node()*) as node()* {
                     <div class="message">{$count} Treffer gefunden. Zeige Treffer {$offset} bis 
                     {$offset + $howmany - 1}.</div>
                 </li>,
-                ed:display($divs, $count, $hits, (:  $query :) "", $display, $col),
+                ed:display($divs, $count, $hits, $simple, $display, $col),
                 <li class="info-bottom">
                 {
                     if ($count gt 100) then

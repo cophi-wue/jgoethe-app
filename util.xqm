@@ -141,3 +141,7 @@ declare function utils:subsection-id($anchor as node()) as xs:string {
         $anchor/ancestor-or-self::page)/@xml:id
     return $section[last()] cast as xs:string
 };
+
+declare function utils:ftquery($divs as node()*, $simple as xs:string) as node()* {
+    $divs//(p|l|head|cell)[ft:query(., $simple)]
+};

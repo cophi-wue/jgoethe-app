@@ -30,14 +30,14 @@ declare function ed:display($col as xs:string, $id as xs:string) as empty-sequen
 
 declare function ed:display-by-id($col as xs:string, $sectId as xs:string, $page as element(),
     $anchor as node()) as empty-sequence() {
-    let $query := request:get-parameter("query", ())
+    let $simple := request:get-parameter("simple", ())
     let $hits :=
-        if ($query) then
-            util:eval-inline($page, concat(".[.", $query, "]"))
+        if ($simple) then
+            util:expand($page[.//(p|l|head|cell)[ft:query(., $simple)]])
         else
             $page
-    let $log := util:log("DEBUG", ("Loading: ", count($hits)))
-    let $function := if ($query) then "top.queryResultsLoaded" else "top.sectionLoaded"
+    let $log := util:log("INFO", ("Loading: ", count($hits)))
+    let $function := if ($simple) then "top.queryResultsLoaded" else "top.sectionLoaded"
     let $section := xs:string($page/@sect)
     let $subSectionId := utils:subsection-id($anchor)
     let $pageNr := xs:int($page/@num)
@@ -51,7 +51,7 @@ declare function ed:display-by-id($col as xs:string, $sectId as xs:string, $page
 
 declare function ed:load-by-id($col as xs:string, $id as xs:string) as empty-sequence() {
     let $anchor := (collection(concat($col, "/pages"))//id($id))[1]
-    (: let $debug := util:log("DEBUG", ("ID: ", $id, ": ", $anchor)) :)
+    let $debug := util:log("INFO", ("ID: ", $id, ": ", $anchor)) 
     let $page := $anchor/ancestor-or-self::page
     return
         ed:display-by-id($col, $id, $page, $anchor)

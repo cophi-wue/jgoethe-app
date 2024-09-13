@@ -3,6 +3,7 @@ xquery version "1.0";
 import module namespace utils="http://exist-db.org/xquery/jgoethe/utils" at "util.xqm";
 import module namespace simpleql="http://exist-db.org/xquery/simple-ql"
 at "java:org.exist.xquery.modules.simpleql.SimpleQLModule";
+import module namespace config="http://digital-humanities.de/jgoethe/config" at "config.xqm";
 
 
 declare namespace ed="http://exist-db.org/xquery/jgoethe";
@@ -17,8 +18,7 @@ declare function ed:load-section($col as xs:string, $id as xs:string) as node()+
         $part
 };
 
-declare function ed:highlight($term as xs:string, $node as text(), 
-$args as item()+, $info as item()+) as element() {
+declare function ed:highlight($term as xs:string, $node as text(), $args as item()+, $info as item()+) as element() {
     let $id0 := ($node/ancestor::l/@xml:id|$node/ancestor::lg/@xml:id|$node/ancestor::sp/@xml:id|$node/ancestor::p/@xml:id)
     let $id := 
 		if ($id0) then $id0[1] 
@@ -52,8 +52,8 @@ declare function ed:finish-callback($nodes as node()*, $width as xs:integer, $ar
                                 
 declare function ed:display($sections as element()*, $count as xs:integer, $matches as node()*, 
 $query as xs:string, $mode as xs:string, $col as xs:string) as node()* {
-    let $cb := util:function("ed:highlight", 4)
-    let $finishCb := util:function("ed:finish-callback", 3)
+    let $cb := 'util:function("ed:highlight", 4)'
+    let $finishCb := 'util:function("ed:finish-callback", 3)'
     let $log := util:log("DEBUG", ("Found: ", $count))
     let $width := if ($mode eq "multi") then 300 else 100
     let $howmany := if ($count gt 100) then 100 else $count
@@ -63,12 +63,12 @@ $query as xs:string, $mode as xs:string, $col as xs:string) as node()* {
     return
         <li>
             { if ($pos mod 2 eq 0) then attribute class { 'hi' } else () }
-            {
+            <pre>
                 text:kwic-display(
-                    ($hit/text()|$hit/hi/text()|$hit/title/text()|$hit/stage/text()|$hit/ref/text()), 
-                    $width, $cb, $finishCb, ($query, $mode, $hit, $col)
+                    ({$hit}/text()|{$hit}/hi/text()|{$hit}/title/text()|{$hit}/stage/text()|{$hit}/ref/text()), 
+                    {$width}, {$cb}, {$finishCb}, ({$query}, {$mode}, {$hit}, {$col})
                 )
-            }
+            </pre>
         </li>
 };
 
@@ -187,7 +187,7 @@ declare function ed:query($col as xs:string, $sections as element()*) as element
 
 let $parts := request:get-parameter("part", ())
 let $sections := request:get-parameter("section", ())
-let $col := request:get-parameter("c", ())
+let $col := $config:col (:  :request:get-parameter("c", ()) FIXME :)
 let $divs :=
 	if (exists($sections)) then
 		for $s in $sections return collection($col)/id($s)
