@@ -22,11 +22,15 @@ RUN apk add --no-cache --virtual .build-deps \
   nodejs \
   npm \
   git \
-  && npm i npm@latest -g \
-  && ant
+  && npm i npm@latest -g
+RUN ant
 
 
 # Stage 2: The actual webapp image
 FROM stadlerpeter/existdb:latest AS webapp 
 
-COPY --from=build /home/jgoethe/build/*.xar ${EXIST_HOME}/autodeploy
+ENV EXIST_CONTEXT_PATH=/
+ENV EXIST_DEFAULT_APP_PATH=xmldb:exist:///db/apps/jgoethe
+
+USER wegajetty
+COPY --from=build /home/jgoethe/build/jgoethe-0.1.0.xar ${EXIST_HOME}/autodeploy
