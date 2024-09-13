@@ -163,3 +163,6 @@ nb-configuration.xml
 ##############################
 .vscode/
 *.code-workspace
+
+## Other
+.rgignore
