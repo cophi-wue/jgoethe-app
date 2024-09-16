@@ -99,7 +99,7 @@ return (
         <body>
             <div id="head">
                 <ul id="menu">
-                    <li><a href="{collection($col)/configuration/about/@url}">{collection($col)/configuration/about/text()}</a></li>
+                    <li><a href="{collection($col)/configuration/about/@url}" target="content">{collection($col)/configuration/about/text()}</a></li>
                     <li><a href="index.html">Startseite</a></li>
                     <li class="last"><a href="hide_sections" id="hide_sections">&lt;&lt; Ausblenden</a></li>
                 </ul>

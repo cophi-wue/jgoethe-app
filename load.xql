@@ -33,7 +33,7 @@ declare function ed:display-by-id($col as xs:string, $sectId as xs:string, $page
     let $simple := request:get-parameter("simple", ())
     let $hits :=
         if ($simple) then
-            util:expand($page[.//(p|l|head|cell)[ft:query(., $simple)]])
+            util:expand($page[.//(p|l|head|cell)[ft:query(., $simple)]], "add-exist-id=all")
         else
             $page
     let $log := util:log("INFO", ("Loading: ", count($hits)))
@@ -41,7 +41,9 @@ declare function ed:display-by-id($col as xs:string, $sectId as xs:string, $page
     let $section := xs:string($page/@sect)
     let $subSectionId := utils:subsection-id($anchor)
     let $pageNr := xs:int($page/@num)
-    let $np := if ($pageNr eq ed:last-page($col, $section)) then -1 else $pageNr + 1
+    let $np := if ($section) then
+        if ($pageNr eq ed:last-page($col, $section)) then -1 else $pageNr + 1
+        else -1
     return
         utils:transform(
             $hits,
@@ -49,13 +51,26 @@ declare function ed:display-by-id($col as xs:string, $sectId as xs:string, $page
         )
 };
 
+declare function ed:display-special($col as xs:string, $id as xs:string) {
+    let $anchor := collection($col)//id($id),
+        $text := ($anchor/ancestor::div2, $anchor/ancestor::div1, $anchor/ancestor::text, root($anchor))[1]
+    return
+        utils:transform($text, utils:xsl-params("top.sectionLoaded", 1, -1, $id, ($text//head)[1], $id, $id))
+};
+
 declare function ed:load-by-id($col as xs:string, $id as xs:string) as empty-sequence() {
     let $anchor := (collection(concat($col, "/pages"))//id($id))[1]
     let $debug := util:log("INFO", ("ID: ", $id, ": ", $anchor)) 
     let $page := $anchor/ancestor-or-self::page
     return
-        ed:display-by-id($col, $id, $page, $anchor)
-};
+        if ($anchor)
+            then ed:display-by-id($col, $id, $page, $anchor)
+          else 
+              let $anchor := collection($col)//id($id)[1],
+                  $page := ($anchor/ancestor-or-self::page, $anchor/ancestor-or-self::div1, root($anchor))[1]
+              return
+                  ed:display-by-id($col, $id, $page, $anchor)
+};                
 
 declare function ed:load($col as xs:string) as empty-sequence() {
     let $parts := request:get-parameter("part", ())
@@ -66,12 +81,17 @@ declare function ed:load($col as xs:string) as empty-sequence() {
             ()
 };
 
-let $id := request:get-parameter("id", ())
+
+
+let $id := request:get-parameter("id", ()),
+    $special := request:get-parameter("special", ())
 let $col_ := request:get-parameter("c", ())
 let $colname := replace($col_, '^.*/([^/]+)$', '$1')
 let $col := $config:data || '/' || $colname
 let $r :=
-    if ($id) then
+    if ($special) then
+        ed:display-special($col, $special)
+    else if ($id) then
         ed:load-by-id($col, $id)
     else
         ed:load($col)
