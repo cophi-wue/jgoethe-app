@@ -1,4 +1,4 @@
-# Stage 1: The build environment
+# build is stage 1: it compiles the webapp.
 FROM eclipse-temurin:8-jdk-alpine AS build
 
 ENV ANT_VERSION=1.10.15
@@ -26,7 +26,7 @@ RUN apk add --no-cache --virtual .build-deps \
 RUN ant
 
 
-# Stage 2: The actual webapp image
+# webapp is the actual running and exist serving webapp
 FROM stadlerpeter/existdb:latest AS webapp 
 
 ENV EXIST_CONTEXT_PATH=/
