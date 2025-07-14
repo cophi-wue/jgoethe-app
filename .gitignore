@@ -166,3 +166,10 @@ nb-configuration.xml
 
 ## Other
 .rgignore
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/deploy.sh

@@ -29,6 +29,8 @@
     "license": "AGPL-3.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.0.13",
     "chai": "^5.1.1",
     "chai-xml": "^0.4.1",
     "cypress": "^13.9.0",
