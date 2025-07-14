@@ -45,6 +45,7 @@ declare function utils:transform($sect as element()?) as item()* {
 };
 
 declare function utils:transform($sect as element()?, $params as element()?) as empty-sequence() {
+    response:set-header("Content-Type", "text/html; charset=UTF-8"),
     transform:stream-transform($sect, doc($config:col || "/tei2html.xsl"), $params)
 };
 

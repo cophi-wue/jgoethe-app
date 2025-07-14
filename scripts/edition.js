@@ -498,17 +498,21 @@ function sectionLoaded(heading, id, page, nextPage, subSection) {
 	} else {
 		currentSection = subSection;
 	}
-	
-	window.scrollTo(0, 0);
-	
-	// if an an id within the loaded part was specified,
-	// try to scroll the window to the element with that id
-	if (subSection != null) {
-		var anchor = iframe.contentWindow.document.getElementById(subSection);
-		if (anchor != null) {
-			anchor.scrollIntoView();
-		}
-	}
+
+  const url = new URL(iframe.src);
+  if (!url.hash) {
+
+    window.scrollTo(0, 0);
+
+    // if an an id within the loaded part was specified,
+    // try to scroll the window to the element with that id
+    if (subSection != null) {
+      var anchor = iframe.contentWindow.document.getElementById(subSection);
+      if (anchor != null) {
+        anchor.scrollIntoView();
+      }
+    }
+  }
 }
 
 /**

@@ -3,6 +3,9 @@
 
     <xsl:param name="onload"/>
     <xsl:param name="anchor"/>
+
+  <xsl:ouput method="html" encoding="UTF-8" indent="yes" media-type="text/xsl"/>
+
     
     <xsl:template match="/">
         <html>

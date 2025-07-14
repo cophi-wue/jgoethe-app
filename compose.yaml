@@ -1,0 +1,10 @@
+services:
+  jgoethe:
+    image: thvitt/jgoethe
+    build: .
+    ports:
+      - "8765:8080"
+    develop:
+      watch:
+        - path: .
+          action: rebuild
