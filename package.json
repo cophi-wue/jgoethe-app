@@ -40,6 +40,8 @@
     "yeoman-assert": "^3.1.1"
   },
   "dependencies": {
-    "playwright": "^1.54.1"
+    "@playwright/test": "^1.58.2",
+    "playwright": "^1.58.2",
+    "playwright-test": "^14.1.12"
   }
 }
