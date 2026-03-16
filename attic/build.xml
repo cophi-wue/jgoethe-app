@@ -83,17 +83,17 @@
 	
 	<target xmlns:xmldb="http://exist-db.org/ant" name="prepare-db">
 		<echo message="Generating pages ..."/>
-		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/jgoethe" queryfile="${app.home}/prepare.xq" initdb="true">
+		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/jgoethe" queryfile="${app.home}/prepare.xqm" initdb="true">
 			<xmldb:variable name="collection" value="/db/jgoethe"/>
 		</xmldb:xquery>
-		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/lenz" queryfile="${app.home}/prepare.xq">
+		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/lenz" queryfile="${app.home}/prepare.xqm">
 			<xmldb:variable name="collection" value="/db/lenz"/>
 		</xmldb:xquery>
 		<echo message="Generating table of contents ..."/>
-		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/jgoethe" queryfile="${app.home}/toc-prepare.xq">
+		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/jgoethe" queryfile="${app.home}/toc-prepare.xqm">
 			<xmldb:variable name="collection" value="/db/jgoethe"/>
 		</xmldb:xquery>
-		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/lenz" queryfile="${app.home}/toc-prepare.xq" initdb="true">
+		<xmldb:xquery user="admin" password="" uri="xmldb:exist:///db/lenz" queryfile="${app.home}/toc-prepare.xqm" initdb="true">
 			<xmldb:variable name="collection" value="/db/lenz"/>
 		</xmldb:xquery>
 	</target>

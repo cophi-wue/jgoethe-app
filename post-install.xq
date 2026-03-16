@@ -3,6 +3,8 @@ xquery version "3.1";
  :
  : @version 0.1.0
  :)
+import module namespace prep="http://digital-humanities.de/jgoethe/prepare" at "prepare.xqm";
+
 declare namespace repo="http://exist-db.org/xquery/repo";
 
 (: The following external variables are set by the repo:deploy function :)
@@ -14,4 +16,4 @@ declare variable $dir external;
 (: the target collection into which the app is deployed :)
 declare variable $target external;
 
-1 + 1
+prep:prepare($target || "/jgoethe")

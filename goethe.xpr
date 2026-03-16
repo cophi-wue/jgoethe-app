@@ -13,7 +13,7 @@
         <file name="edition.xql"/>
         <file name="load-query-results.xql"/>
         <file name="load.xql"/>
-        <file name="prepare.xq"/>
+        <file name="prepare.xqm"/>
         <file name="styles/query.css"/>
         <file name="query.xql"/>
         <file name="tei2html.xsl"/>

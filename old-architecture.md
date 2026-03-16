@@ -27,16 +27,16 @@ The application organizes its data across several collections and XML files, opt
 The application uses a "preprocessing" pattern to transform the monolithic source into an interactive web experience.
 
 1.  **Scope Resolution:** The workflow starts with `configuration.xml`, which defines how the main text should be sliced using XPath.
-2.  **Text Segmentation (`prepare.xq`):**
+2.  **Text Segmentation (`prepare.xqm`):**
     *   Evaluates the XPaths against `jgoethe.xml`.
     *   Subdivides the resulting fragments into manageable chunks.
     *   Stores these chunks in the `/pages` collection.
-    *   [Link to prepare.xq](prepare.xq)
-3.  **TOC Mapping (`toc-prepare.xq`):**
+    *   [Link to prepare.xqm](prepare.xqm)
+3.  **TOC Mapping (`toc-prepare.xqm`):**
     *   Traverses the TEI structure (`div1`, `div2`, etc.) in `jgoethe.xml`.
     *   Extracts titles and IDs to create a lightweight structural index.
     *   Stores these indexes as XML files in the `/toc` collection.
-    *   [Link to toc-prepare.xq](toc-prepare.xq)
+    *   [Link to toc-prepare.xqm](toc-prepare.xqm)
 
 ## 2. Information Extraction Queries
 
