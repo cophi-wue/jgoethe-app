@@ -4,6 +4,7 @@ xquery version "3.1";
  : @version 0.1.0
  :)
 import module namespace prep="http://digital-humanities.de/jgoethe/prepare" at "prepare.xqm";
+import module namespace toc-prep="http://digital-humanities.de/jgoethe/toc-prepare" at "toc-prepare.xq";
 
 declare namespace repo="http://exist-db.org/xquery/repo";
 
@@ -16,4 +17,6 @@ declare variable $dir external;
 (: the target collection into which the app is deployed :)
 declare variable $target external;
 
-prep:prepare($target || "/jgoethe")
+prep:prepare($target || "/jgoethe"),
+toc-prep:prepare($target || "/jgoethe")
+
